@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import TRPCContext from '@/context/TRPCContext'
+import Navbar from '@/components/Navbar'
+import { ThemeProvider } from '@/context/ThemeProvider'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -18,9 +20,19 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <TRPCContext>
-          {children}
-        </TRPCContext>
+        <main className="relative flex flex-col min-h-screen">
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <TRPCContext>
+              <Navbar /> 
+              {children}
+            </TRPCContext>
+          </ThemeProvider>
+        </main>
       </body>
     </html>
   )

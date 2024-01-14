@@ -8,3 +8,7 @@ npx prisma migrate dev
 
 npm install @trpc/server@next @trpc/client@next @trpc/react-query@next @trpc/next@next @tanstack/react-query@latest
 npm i @tanstack/react-query
+npm i zustand
+npx shadcn-ui@latest add button
+npx shadcn-ui@latest add dropdown-menu
+npm install next-themes
