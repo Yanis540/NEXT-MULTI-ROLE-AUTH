@@ -1,10 +1,9 @@
 'use client'
 import { trpc } from '@/trpc/client'
-import Image from 'next/image'
 
 export default function Home() {
-  const {data,isLoading} = trpc.tryingSomething.useQuery();
-  console.log(data); 
+  const {data,error,isLoading} = trpc.user.current.useQuery();
+  console.log(data,error); 
   return (
   <main className="">
     <h1>HI</h1>
