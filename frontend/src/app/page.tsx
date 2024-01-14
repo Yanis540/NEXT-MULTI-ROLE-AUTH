@@ -1,9 +1,14 @@
+'use client'
+import { trpc } from '@/trpc/client'
 import Image from 'next/image'
 
 export default function Home() {
+  const {data,isLoading} = trpc.tryingSomething.useQuery();
+  console.log(data); 
   return (
-  <main className="flex min-h-screen flex-col items-center justify-between p-24">
-    
+  <main className="">
+    <h1>HI</h1>
   </main>
   )
 }
+
