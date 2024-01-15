@@ -49,4 +49,7 @@ export const authOptions : AuthOptions = {
         })
     ],
     adapter: PrismaAdapter(prisma),
+    pages : {
+        signIn : '/sign-in'
+    }
 }  

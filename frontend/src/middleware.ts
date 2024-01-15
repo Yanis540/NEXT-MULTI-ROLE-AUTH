@@ -16,7 +16,6 @@ export default withAuth(
             if (isAuthenticated) {
                 return NextResponse.redirect(new URL("/", req.url));
             }
-         
         }
         const session:{user?:User,expires:string}|null = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/auth/session`, {
             headers:headers(),
@@ -35,7 +34,8 @@ export default withAuth(
 
 export const config = {
     matcher: [
-        '/','/sign-in','/sign-up','/admin'
-    ]
+        '/admin', '/sign-in', '/sign-up'
+    ], 
+    pages: {signIn: '/sign-in'}
     
 }

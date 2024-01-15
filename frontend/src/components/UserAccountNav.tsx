@@ -5,12 +5,20 @@ import { Button } from './ui/button';
 import Link from 'next/link';
 import { signOut } from "next-auth/react"
 import { User } from '@prisma/client';
+import { useRouter } from 'next/navigation';
 
 interface UserAccountNavProps {
     user: User
 };
 
 function UserAccountNav({user}:UserAccountNavProps) {
+    const router = useRouter(); 
+    const handleSignOut = ()=>{
+        signOut({
+           redirect : false
+        }).then(()=> router.push('/'))
+      
+    }
     return (
     <DropdownMenu>
         <DropdownMenuTrigger asChild className='overflow-visible'>
@@ -28,7 +36,7 @@ function UserAccountNav({user}:UserAccountNavProps) {
             <DropdownMenuItem asChild>
                 <Link href='/sell'>Seller Dashboard</Link>
             </DropdownMenuItem>
-            <DropdownMenuItem className="cursor-pointer" onClick={signOut}>Log Out</DropdownMenuItem>
+            <DropdownMenuItem className="cursor-pointer" onClick={handleSignOut}>Log Out</DropdownMenuItem>
         </DropdownMenuContent>
     </DropdownMenu>
     );
