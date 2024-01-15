@@ -4,6 +4,8 @@ import './globals.css'
 import TRPCContext from '@/context/TRPCContext'
 import Navbar from '@/components/Navbar'
 import { ThemeProvider } from '@/context/ThemeProvider'
+import AuthContext from '@/context/AuthContext'
+import { Toaster } from "@/components/ui/sonner"
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -27,12 +29,15 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            <TRPCContext>
-              <Navbar /> 
-              {children}
-            </TRPCContext>
+            <AuthContext>
+              <TRPCContext>
+                <Navbar /> 
+                {children}
+              </TRPCContext>
+            </AuthContext>
           </ThemeProvider>
         </main>
+        <Toaster /> 
       </body>
     </html>
   )

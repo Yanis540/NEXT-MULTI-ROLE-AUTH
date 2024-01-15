@@ -4,6 +4,8 @@ declare global {
     namespace globalThis {
         var prisma : PrismaClient
     }
+    type Provider = "google" | "github"
+
 }
 
 declare module "next-auth" {

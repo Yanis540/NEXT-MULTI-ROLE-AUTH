@@ -12,3 +12,7 @@ npm i zustand
 npx shadcn-ui@latest add button
 npx shadcn-ui@latest add dropdown-menu
 npm install next-themes
+npm install react-hook-form
+npx shadcn-ui@latest add card
+npx shadcn-ui@latest add input label
+npx shadcn-ui@latest add sonner
