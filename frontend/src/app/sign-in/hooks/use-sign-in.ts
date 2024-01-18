@@ -1,19 +1,22 @@
 import { toast } from "sonner";
 import { useSession,signIn } from "next-auth/react"
 import {SubmitHandler, useForm} from 'react-hook-form'
-import { SignInSchema } from '@/lib/validators';
+import { SignInSchema, signInSchema } from '@/lib/validators';
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 
 
-export const useAuth = ()=>{
+export const useSignIn = ()=>{
     const {
         register,
         handleSubmit,
         watch,
         formState: { errors },
-    } = useForm<SignInSchema>(); 
+    } = useForm<SignInSchema>({
+        resolver : zodResolver(signInSchema)
+    }); 
     const router = useRouter(); 
     const session = useSession(); 
     

@@ -16,3 +16,4 @@ npm install react-hook-form
 npx shadcn-ui@latest add card
 npx shadcn-ui@latest add input label
 npx shadcn-ui@latest add sonner
+npm install @hookform/resolvers

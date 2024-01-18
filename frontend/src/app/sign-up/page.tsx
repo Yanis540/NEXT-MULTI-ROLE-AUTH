@@ -1,27 +1,26 @@
 'use client'
 import MaxWidthWrapper from '@/components/MaxWidthWrapper';
 import React from 'react';
-import LoginForm  from './components/LoginForm';
-import { useSignIn } from './hooks/use-sign-in';
+import SignUpForm  from './components/SignUpForm';
+import { useSignUp } from './hooks/use-sign-up';
 
-interface SignInProps {
+interface SignUpProps {
 
 };
 
-function SignIn({}:SignInProps) {
+function SignUp({}:SignUpProps) {
 
-   const {signIn,providerSignIn,register} = useSignIn(); 
+   const {signUp,register} = useSignUp(); 
     return (
     <MaxWidthWrapper className="flex-1 flex h-full  ">
         <div className="flex-1 flex flex-col items-center justify-center ">
-           <LoginForm 
+           <SignUpForm 
                 register={register} 
-                providerSignIn={providerSignIn} 
-                signIn ={signIn}
+                signUp ={signUp}
             />
         </div>
     </MaxWidthWrapper>
     );
 };
 
-export default SignIn;
+export default SignUp;

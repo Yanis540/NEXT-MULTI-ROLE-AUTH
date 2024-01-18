@@ -13,15 +13,13 @@ import {
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { UseFormRegister } from "react-hook-form"
+import { SignInSchema } from "@/lib/validators"
 
 const providers :Provider[]= ["github","google"]
 type LoginFormProps ={
     providerSignIn : (provider? : Provider)=> void 
     signIn : ()=>void
-    register : UseFormRegister<{
-        email: string;
-        password: string;
-    }>
+    register : UseFormRegister<SignInSchema>
 }
 export default function LoginForm({providerSignIn,register,signIn}:LoginFormProps) {
   return (
