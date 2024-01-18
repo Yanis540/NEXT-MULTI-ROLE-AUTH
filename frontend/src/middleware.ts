@@ -5,6 +5,7 @@ import { getServerSession } from "next-auth";
 import {headers} from 'next/headers'
 import { User } from "@prisma/client";
 const authRoutes = ["sign-in","sign-up"]
+const adminRoutes = ["admin"]
 export default withAuth(
     async function middleware(req) {
         const token = await getToken({req});
@@ -28,14 +29,20 @@ export default withAuth(
         const isAdmin= user?.role == "admin"; 
 
         // try and see what is his role 
+
+        if(adminRoutes.some((route)=>pathName.includes(route))){
+            if(!isAuthenticated || ! isAdmin)   
+                return NextResponse.redirect(new URL("/dashboar",req.url))
+
+        }
+
        
     }
 )
 
 export const config = {
     matcher: [
-        '/admin', '/sign-in', '/sign-up'
+        '/admin','/dashboard'
     ], 
-    pages: {signIn: '/sign-in'}
     
 }

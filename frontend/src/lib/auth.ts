@@ -14,6 +14,9 @@ export const authOptions : AuthOptions = {
     session: {
         strategy: "jwt",
     },
+    pages : {
+        signIn : '/sign-in'
+    },
     providers: [
         GithubProvider({
             clientId: process.env.GITHUB_ID!,
@@ -49,7 +52,5 @@ export const authOptions : AuthOptions = {
         })
     ],
     adapter: PrismaAdapter(prisma),
-    pages : {
-        signIn : '/sign-in'
-    }
+   
 }  
